@@ -23,7 +23,7 @@ USER_LDFLAGS =
 # use this to add system libraries for example:
 # USER_LIBS = -lpango
 
-USER_LIBS = 
+USER_LIBS = -lX11 -lGLEW -lGLU -lgstbase-0.10 -lgstapp-0.10 -lgstvideo-0.10 -lgstreamer-0.10
 
 
 # change this to add different compiler optimizations to your project

@@ -151,7 +151,8 @@ void DurationController::setup(){
     timeline.setSpacebarTogglePlay(false);
     timeline.setFrameRate(30);
 	timeline.setDurationInSeconds(30);
-	timeline.setOffset(ofVec2f(0, 90));
+	timeline.setOffset(ofVec2f(0, 90));//Set up top GUI
+    gui = new ofxUICanvas(0,0,ofGetWidth(), 90);
     timeline.setBPM(120.f);
 	timeline.setAutosave(false);
 	timeline.setEditableHeaders(true);
@@ -173,7 +174,7 @@ void DurationController::setup(){
     trackTypes.push_back(translation.translateKey("colors"));
 	trackTypes.push_back(translation.translateKey("lfo"));
 	trackTypes.push_back(translation.translateKey("audio"));
-	trackTypes.push_back("test");
+	trackTypes.push_back(translation.translateKey("buttons"));
 
     addTrackDropDown = new ofxUIDropDownList(DROP_DOWN_WIDTH, translation.translateKey("ADD TRACK"), trackTypes, OFX_UI_FONT_MEDIUM);
     addTrackDropDown->setAllowMultiple(false);
@@ -1079,7 +1080,7 @@ ofxTLTrack* DurationController::addTrack(string trackType, string trackName, str
 			newTrack = audioTrack;
 		}
 	}
-	else if(trackType == translation.translateKey("test") || trackType == "test"){
+	else if(trackType == translation.translateKey("buttons") || trackType == "buttons"){
         buttonsTrack = new ofxTLButtons();
         timeline.addTrack(trackName, buttonsTrack);
         timeline.bringTrackToTop(buttonsTrack);
