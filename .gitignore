@@ -74,6 +74,8 @@ releases/*
 *.ipch
 
 Duration/bin/Duration
+Duration/Duration.layout
+Duration/bin/Duration_debug
 Duration/bin/libs/*
 DurationRemote/bin/libs/*
 RecordingDataGenerator/bin/RecordingDataGenerator
