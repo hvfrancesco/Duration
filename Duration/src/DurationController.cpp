@@ -1083,7 +1083,7 @@ ofxTLTrack* DurationController::addTrack(string trackType, string trackName, str
 	else if(trackType == translation.translateKey("buttons") || trackType == "buttons"){
         buttonsTrack = new ofxTLButtons(4,5,settings.oscIP,settings.oscOutPort);
         timeline.addTrack(trackName, buttonsTrack);
-        timeline.bringTrackToTop(buttonsTrack);
+        //timeline.bringTrackToTop(buttonsTrack);
         newTrack = buttonsTrack;
 	}
 	else {
