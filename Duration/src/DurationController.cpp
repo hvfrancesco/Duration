@@ -175,6 +175,7 @@ void DurationController::setup(){
 	trackTypes.push_back(translation.translateKey("lfo"));
 	trackTypes.push_back(translation.translateKey("audio"));
 	trackTypes.push_back(translation.translateKey("buttons"));
+	trackTypes.push_back(translation.translateKey("sliders"));
 
     addTrackDropDown = new ofxUIDropDownList(DROP_DOWN_WIDTH, translation.translateKey("ADD TRACK"), trackTypes, OFX_UI_FONT_MEDIUM);
     addTrackDropDown->setAllowMultiple(false);
@@ -1081,10 +1082,26 @@ ofxTLTrack* DurationController::addTrack(string trackType, string trackName, str
 		}
 	}
 	else if(trackType == translation.translateKey("buttons") || trackType == "buttons"){
-        buttonsTrack = new ofxTLButtons(4,5,settings.oscIP,settings.oscOutPort);
-        timeline.addTrack(trackName, buttonsTrack);
-        //timeline.bringTrackToTop(buttonsTrack);
-        newTrack = buttonsTrack;
+        if(buttonsTrack != NULL){
+			ofLogError("DurationController::addTrack") << "You can only have one buttons track";
+		}
+		else{
+            buttonsTrack = new ofxTLButtons(4,7,settings.oscIP,settings.oscOutPort,OFXTLBUTTONS_TYPE_BUTTONS);
+            timeline.addTrack(trackName, buttonsTrack);
+            //timeline.bringTrackToTop(buttonsTrack);
+            newTrack = buttonsTrack;
+        }
+	}
+    else if(trackType == translation.translateKey("sliders") || trackType == "sliders"){
+        if(slidersTrack != NULL){
+			ofLogError("DurationController::addTrack") << "You can only have one sliders track";
+		}
+		else{
+            slidersTrack = new ofxTLButtons(2,8,settings.oscIP,settings.oscOutPort,OFXTLBUTTONS_TYPE_SLIDERS);
+            timeline.addTrack(trackName, slidersTrack);
+            //timeline.bringTrackToTop(slidersTrack);
+            newTrack = slidersTrack;
+        }
 	}
 	else {
 		ofLogError("DurationController::addTrack") << "Unsupported track type: " << trackType;
@@ -1183,6 +1200,15 @@ void DurationController::update(ofEventArgs& args){
 
 		if(it->second->getShouldDelete()){
 			lock();
+            if(it->second->getTrackType() == "Buttons"){
+                ofxTLButtons *track = (ofxTLButtons*) timeline.getTrack(it->first);
+                if(track->type == OFXTLBUTTONS_TYPE_BUTTONS && buttonsTrack != NULL){
+                    buttonsTrack = NULL;
+                }
+                else if(track->type == OFXTLBUTTONS_TYPE_SLIDERS && slidersTrack != NULL){
+                    slidersTrack = NULL;
+                }
+			}
             timeline.removeTrack(it->first);
 			timeline.setTimecontrolTrack(NULL);
 			if(it->second->getTrackType() == "Audio"){

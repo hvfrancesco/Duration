@@ -171,6 +171,7 @@ class DurationController : public ofThread  {
 	ofxTLAudioTrack* audioTrack;
 
     ofxTLButtons* buttonsTrack;
+    ofxTLButtons* slidersTrack;
 
 	vector<ofxOscMessage> bangsReceived;
 	map<string, ofPtr<ofxTLUIHeader> > headers;
