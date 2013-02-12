@@ -176,6 +176,7 @@ void DurationController::setup(){
 	trackTypes.push_back(translation.translateKey("audio"));
 	trackTypes.push_back(translation.translateKey("buttons"));
 	trackTypes.push_back(translation.translateKey("sliders"));
+	trackTypes.push_back(translation.translateKey("manual_controls"));
 
     addTrackDropDown = new ofxUIDropDownList(DROP_DOWN_WIDTH, translation.translateKey("ADD TRACK"), trackTypes, OFX_UI_FONT_MEDIUM);
     addTrackDropDown->setAllowMultiple(false);
@@ -1103,6 +1104,17 @@ ofxTLTrack* DurationController::addTrack(string trackType, string trackName, str
             newTrack = slidersTrack;
         }
 	}
+    else if(trackType == translation.translateKey("manual_controls") || trackType == "manual_controls"){
+        if(slidersTrack != NULL){
+			ofLogError("DurationController::addTrack") << "You can only have one sliders track";
+		}
+		else{
+            slidersTrack = new ofxTLButtons(4,4,2,4,settings.oscIP,settings.oscOutPort,OFXTLBUTTONS_TYPE_MIXED);
+            timeline.addTrack(trackName, slidersTrack);
+            //timeline.bringTrackToTop(slidersTrack);
+            newTrack = slidersTrack;
+        }
+	}
 	else {
 		ofLogError("DurationController::addTrack") << "Unsupported track type: " << trackType;
 	}
@@ -1206,6 +1218,9 @@ void DurationController::update(ofEventArgs& args){
                     buttonsTrack = NULL;
                 }
                 else if(track->type == OFXTLBUTTONS_TYPE_SLIDERS && slidersTrack != NULL){
+                    slidersTrack = NULL;
+                }
+                else if(track->type == OFXTLBUTTONS_TYPE_MIXED && slidersTrack != NULL){
                     slidersTrack = NULL;
                 }
 			}

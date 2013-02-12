@@ -8,6 +8,7 @@ audio,AUDIO,オーディオ,audio,audio
 lfo,LFO,LFO,lfo,lfo
 buttons,BUTTONS,buttons,buttons,pulsanti
 sliders,SLIDERS,sliders,sliders,cursori
+manual_controls,MANUAL_CONTROLS,manual_controls,manual_controls,controlli_manuali
 bins,bins,bins,bins,bins
 new project...,new project...,新規プロジェクト,nouveau projet,nuovo progetto
 open project...,open project...,プロジェクトを開く,ouvrir projet,apri progetto
