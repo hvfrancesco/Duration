@@ -1,10 +1,8 @@
-# Duration
+# [Duration](http://duration.cc)
 
 ## Timeline for creative code 
 
 Duration controls change over time. With a simple one window approach, the cross platform stand alone application manages lists of tracks to compose changing data over a fixed duration.
-
-[Duration official website](http://duration.cc)
 
 The application sends values over OSC and can be configured through OSC messages.
 
@@ -16,20 +14,22 @@ Duration is open source and completely free to use in your art, research, or com
 
 Download Duration: 
 
-[Mac OS X 10.6+](http://www.duration.cc/downloads/Duration_003_OSX.zip)
+[Mac OS X 10.6+](http://www.duration.cc/downloads/Duration_004_OSX.zip)
 
-[Windows XP and 7](http://www.duration.cc/downloads/Duration_003_Windows.zip)
+[Windows XP and 7](http://www.duration.cc/downloads/Duration_004_Windows.zip)
 
-[Linux](http://www.duration.cc/downloads/Duration_Linux_002_preRelease.zip)
+[Linux 64bit](http://www.duration.cc/downloads/Duration_003_Linux64.zip) 
 
-[Source for Windows (VC2010) and Mac (Xcode 4.5)](http://www.duration.cc/downloads/Duration_preRelease_002_Source_MacWndows.zip)
+Thanks to [Philip Whitfield](http://underdoeg.com/) for the Linux build.
 
-For Windows, you may need to install the [MSVC++ Runtime](http://www.microsoft.com/en-us/download/details.aspx?id=5555)
+[Source for all platforms](http://www.duration.cc/downloads/DurationSource_003.zip)
+
+For Windows, you may need to install the [MSVC++ Runtime](http://www.microsoft.com/en-us/download/details.aspx?id=5555) and [OpenAL](http://connect.creativelabs.com/developer/Wiki/OpenAL%20Installer%20for%20Windows.aspx)
 
 ## Demo video
 
 Readme TL;DR? The latest walk through video is here:
-https://vimeo.com/47504220 password: duration
+https://vimeo.com/59654979
 
 
 ## License
@@ -427,6 +427,7 @@ The Duration repository has a clone_addons.sh file that can be run from the term
 This will configure all necessary dependencies into openFrameworks/addons/ and the project should compile
 
 ## Version History
+ - Alpha 004 released February 26th 2013
  - Alpha 003 released February 2nd 2013
  - Alpha 002 released September 23nd 2012
  - Alpha 001 released August 15th 2012

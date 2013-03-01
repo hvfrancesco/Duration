@@ -1,40 +1,61 @@
-# このプロジェクトは現在まだ未公開の状態です。
+# [Duration](http://duration.cc)
 
-このプロジェクトを自由にお使いいただく、もしくはお知り合いの方々に送っていただいても大丈夫です。ただし、2月8日までの間は大々的な公開をするのはお控えいただけますよう、お願いいたします。
-
-# Duration
-
-## 万能のタイムライン
+## クリエイティブコーディングのためのタイムライン
 
 Durationはタイムラインに沿って、値の変化をコントロールします。シンプルな1画面のインターフェースを備えたクロスプラットフォームのスタンドアローンアプリケーションで、複数のトラックを使ってタイムライン編集をする事ができます。
 
 このアプリケーションによるタイムラインからの値はOSCによって送信されます。また、外部からのOSCメッセージで、アプリケーションを操作する事も可能です。
 
-![Durationのインターフェース](http://www.duration.cc/duration_preview.png)
+![Durationのインターフェース](http://www.duration.cc/assets/images/duration_screen.png)
 
-Durationはオープンソースで公開されています。ご自分のアート作品制作や、リサーチ活動、またコマーシャルなプロジェクトにおいても完全にフリーで使うことが出来ます。このプロジェクトは[openFrameworks](http://www.openframeworks.cc)を使用して作られており、そのライセンスの形体やシェアに関しての考え方を引き継いでいます。
+Durationはオープンソースで公開されています。ご自分のアート作品制作や、リサーチ活動、またコマーシャルなプロジェクトにおいても完全にフリーで使うことが出来ます。このプロジェクトは[openFrameworks](http://www.openframeworks.cc)を使用して作られており、そのシェアに関しての考え方を引き継いでいます。
+
+Duration is a project by [James George](http://www.jamesgeorge.org), co-developed by [YCAMInterLab](http://interlab.ycam.jp/en/) during the [Guest Research Project v.2](http://interlab.ycam.jp/en/projects/guestresearch/vol2)
 
 ## ダウンロード
 
 Durationをダウンロードする：
 
-Mac OS X 10.6+
-https://github.com/downloads/YCAMInterlab/Duration/Duration_OSX_002_preRelease.zip
+[Mac OS X 10.6+](http://www.duration.cc/downloads/Duration_003_OSX.zip)
 
-Windows XP and 7
-https://github.com/downloads/YCAMInterlab/Duration/Duration_Windows_002_preRelease.zip
+[Windows XP and 7](http://www.duration.cc/downloads/Duration_003_Windows.zip)
 
-Windows用ソースコード（VC2010)と、Mac用ソースコード（XCode 4.4）
-https://github.com/downloads/YCAMInterlab/Duration/Duration_preRelease_002_Source_MacWndows.zip 
+[Linux 64bit](http://www.duration.cc/downloads/Duration_003_Linux64.zip)  
+Thanks to [Philip Whitfield](http://underdoeg.com/) for the Linux build.
 
-Windowsユーザーの方はMSVC++ Runtimeのインストールが必要になる場合があります。　
-http://www.microsoft.com/en-us/download/details.aspx?id=5555
+[全プラットフォーム用のソースコード](http://www.duration.cc/downloads/DurationSource_003.zip)
 
+Windowsユーザーの方は[MSVC++ Runtime](http://www.microsoft.com/en-us/download/details.aspx?id=5555)と[OpenAL](http://connect.creativelabs.com/developer/Wiki/OpenAL%20Installer%20for%20Windows.aspx)のインストールが必要になる場合があります。
 
 ## デモビデオ
 
-Readmeを読む時間がありませんか？最新の紹介映像がここにあります。
-https://vimeo.com/47504220 password: duration
+Readmeを読む時間がありませんか？最新の紹介映像がここにあります。  
+https://vimeo.com/59654979
+
+## ライセンス
+
+    Copyright 2012-2013 James George and YCAMInterLab
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+
+## デフォルトの言語を変更する
+
+Durationは現在、英語、日本語、フランス語、イタリア語で使用する事ができます。
+
+言語を変更するには、Duration/data/settings.mxlを開き、languageタグを変更してDurationを再起動します。
+
+Joanie LeMercier, Takayuki Ito, Francesco Fantoni、翻訳のご協力ありがとうございました。もし、他の言語の翻訳を提供してもよいと思われる方がいらっしゃいましたら、languagefile.csvを開き、翻訳を追加していただいたあと、私にpullリクエストを使って、もしくはemailで送ってください。次のリリース時に追加します！
 
 ## Durationのインターフェースを使用する
 
@@ -70,15 +91,17 @@ Durationは標準で6つのタイプのトラックを使用する事が可能�
 
 カーブを使うと、指定した最小値と最大値の間で値をスムーズに変化させる事が出来ます。キーフレームを右クリックするとメニューが表示され、キーフレーム間の補完方法を指定する事が出来ます。
 
+#### LFOs
+
+アニメーションの制作等用に、ローフリークエンシーオシレーターによるサイン波とノイズを使用する事が出来ます。
+
 #### カラー/Color
 
 カラートラックでは、色のサンプルパレットとして画像を使用し、時間の経過に従ってスムーズに色を変化させる事が出来ます。各キーフレームでは画像パレット中の、色をサンプルする位置を指定します。キーフレーム間では、画像パレット内で色のサンプル位置が移動していくことで、滑らかに色が変化します。
 
 #### オーディオ/Audio
 
-(実験段階の機能で、OSXのみをサポートしています)
-
-オーディオトラックを使用すると、トラック内に音の波形を表示し、他のトラックと同期してオーディオを再生する事が可能です。現状、一つのプロジェクト内では一つのオーディオトラックのみが使用可能です。また、プロジェクトの全長はオーディオトラックの長さと同じである必要があります。
+オーディオトラックを使用すると、トラック内への音の波形表示、サウンドの再生、またFFTの結果をOSC経由で送信する事が出来ます。現状、一つのプロジェクト内では一つのオーディオトラックのみが使用可能です。また、プロジェクトの全長はオーディオトラックの長さと同じである必要があります。
 
 ### プロジェクトの長さの設定
 
@@ -187,7 +210,7 @@ Durationは、その全てのデータをバンドルされたOSCで送信しま
         <td>1つのInt32の値。1/0の値をとり、それぞれON/OFFを表します。</td>
     </tr>
     <tr>
-        <td>カーブ/Curves</td>
+        <td>カーブ/Curve and LFO</td>
         <td>再生ヘッド上のカーブの値として、1つのFloatの値。値は設定した最大値と最小値の間になります。</td>
     </tr>
     <tr>
@@ -380,7 +403,7 @@ Durationには外部からのOSCデータをカーブトラックやバントラ
 
 ## Durationをハッキングする
 
-Durationはオープンソースかつフリーで、どのようなプロジェクトにも使う事が出来ます。タイムラインは非常に多くの状況で使用されるため、一つのアプリケーションでその全ての目的を満たす方法はありません。そういった状況を踏まえて、Durationは解体出来る様に作られています。いくつかの方法でDurationをカスタマイズする事が出来ます。
+Durationはオープンソースかつ無償で提供されます。タイムラインは非常に多くの状況で使用されるため、一つのアプリケーションでその全ての目的を満たす方法はありません。そういった状況を考え、Durationは解体出来るように作られています。いくつかの方法でDurationをカスタマイズする事が出来ます。
 
 ### ソースコードをダウンロードする
 
@@ -400,12 +423,15 @@ Durationのレポジトリにはclone_addons.shファイルが入っています
 これで、必要な全ての依存ファイルがopenFrameworks/addons/にダウンロードされ、プロジェクトのコンパイルが出来る様になるはずです。
 
 ## Version History
- - Alpha 002 released September 23nd
- - Alpha 001 released August 15th
+ - Alpha 004 released February 26th 2013
+ - Alpha 003 released February 2nd 2013
+ - Alpha 002 released September 23rd 2012
+ - Alpha 001 released August 15th 2012
 
 ## Supported By ##
 
-Duration was developed as part of the  [Guest Research Projector vol.2 at YCAM Interlab](http://interlab.ycam.jp/en/projects/guestresearch/vol2) by [James George](http://www.jamesgeorge.org) at the [YCAMInterLab](http://interlab.ycam.jp/en/)
+Duration is a project by [James George](http://www.jamesgeorge.org), co-developed by [YCAMInterLab](http://interlab.ycam.jp/en/) during the [Guest Research Project v.2](http://interlab.ycam.jp/en/projects/guestresearch/vol2)
+
 
 <p align="center">
     <img src="http://www.jamesgeorge.org/images/ofxtimeline/github/logo_ycam.png" />
